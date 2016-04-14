@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+# ------------------------------------
+# Misc debug routes
+# ------------------------------------
+# Restrict certain routes to only be viewable in the local environments
+if(App::environment('local')) {
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    Route::get('/drop', function() {
+        DB::statement('DROP database p4');
+        DB::statement('CREATE database p4');
+        return 'Dropped p4; created p4.';
+    });
+}
