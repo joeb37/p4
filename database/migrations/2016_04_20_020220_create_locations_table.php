@@ -27,7 +27,7 @@ class CreateLocationsTable extends Migration
             $table->string('zip');
             $table->string('business_type');
             $table->string('payment_type');
-            $table->boolean('real');
+            $table->boolean('real')->default(false);
         });
     }
 
