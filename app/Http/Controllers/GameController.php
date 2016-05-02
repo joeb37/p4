@@ -3,6 +3,7 @@
 namespace p4\Http\Controllers;
 
 use p4\Http\Controllers\Controller;
+use DB;
 
 class GameController extends Controller {
 
@@ -10,7 +11,31 @@ class GameController extends Controller {
      * Responds to requests to GET /location/{id?}/game/create
      */
     public function getCreate($id) {
-        return 'Creating a new game at location '.$id;
+
+        // Make sure we can find the location that the user wants to see
+        try
+        {
+            $location = \p4\Location::findOrFail($id);
+        }
+        catch (ModelNotFoundException $exception)
+        {
+            return redirect('/');
+        }
+
+        $machines = DB::table('machines')->orderBy('name')->get();
+
+        $gameArray = [];
+
+        $games = DB::table('games')->where('location_id', '=', $id)->join('machines', 'games.machine_id','=','machines.id')->get();
+        foreach ($games as $game) {
+            array_push($gameArray, $game->machine_id);
+        }
+
+
+        return view('games.lineup')
+            ->with('location', $location)
+            ->with('machines', $machines)
+            ->with('games_at_this_location', $gameArray);
     }
 
     /**

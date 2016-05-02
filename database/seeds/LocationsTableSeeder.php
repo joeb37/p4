@@ -19,7 +19,7 @@ class LocationsTableSeeder extends Seeder
         'city' => 'Acton',
         'state' => 'MA',
         'zip' => '01720',
-        'business_type' => 'Bowling Alley',
+        'business_type' => 'Bowl',
         'payment_type' => 'Tokens',
         'real' => true,
         ]);
@@ -31,7 +31,7 @@ class LocationsTableSeeder extends Seeder
         'city' => 'Milford',
         'state' => 'MA',
         'zip' => '01757',
-        'business_type' => 'Bowling Alley',
+        'business_type' => 'Bowl',
         'payment_type' => 'Tokens',
         'real' => true,
         ]);
@@ -43,7 +43,7 @@ class LocationsTableSeeder extends Seeder
         'city' => 'Cambridge',
         'state' => 'MA',
         'zip' => '02140',
-        'business_type' => 'Bowling Alley',
+        'business_type' => 'Bowl',
         'payment_type' => 'Tokens',
         'real' => true,
         ]);

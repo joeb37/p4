@@ -14,7 +14,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Getaway: High Speed II',
+         'name' => 'Getaway: High Speed II',
          'manufacturer' => 'Williams',
          'year' => 1992,
          'players' => 4,
@@ -59,7 +59,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Incredible Hulk',
+         'name' => 'Incredible Hulk',
          'manufacturer' => 'Gottlieb',
          'year' => 1980,
          'players' => 4,
@@ -104,7 +104,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'THe Phantom of the Opera',
+         'name' => 'Phantom of the Opera',
          'manufacturer' => 'Data East',
          'year' => 1990,
          'players' => 4,
@@ -122,7 +122,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'Rollergams',
+         'name' => 'Rollergames',
          'manufacturer' => 'Williams',
          'year' => 1990,
          'players' => 4,
@@ -167,7 +167,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Simpsons',
+         'name' => 'Simpsons',
          'manufacturer' => 'Data East',
          'year' => 1990,
          'players' => 4,
@@ -311,7 +311,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Addams Family',
+         'name' => 'Addams Family',
          'manufacturer' => 'Bally',
          'year' => 1991,
          'players' => 4,
@@ -437,7 +437,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Adventures of Rocky and Bullwinkle and Friends',
+         'name' => 'Rocky and Bullwinkle and Friends',
          'manufacturer' => 'Data East',
          'year' => 1992,
          'players' => 4,
@@ -599,7 +599,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Who\'s Tommy Pinball Wizard',
+         'name' => 'Tommy Pinball Wizard',
          'manufacturer' => 'Data East',
          'year' => 1994,
          'players' => 4,
@@ -635,7 +635,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Flintstones',
+         'name' => 'Flintstones',
          'manufacturer' => 'Williams',
          'year' => 1993,
          'players' => 4,
@@ -680,7 +680,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Shadow',
+         'name' => 'Shadow',
          'manufacturer' => 'Bally',
          'year' => 1994,
          'players' => 4,
@@ -986,7 +986,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Lost World',
+         'name' => 'Lost World',
          'manufacturer' => 'Sega',
          'year' => 1997,
          'players' => 4,
@@ -1004,7 +1004,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The X Files',
+         'name' => 'X Files',
          'manufacturer' => 'Sega',
          'year' => 1997,
          'players' => 4,
@@ -1184,7 +1184,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Simpsons Pinball Party',
+         'name' => 'Simpsons Pinball Party',
          'manufacturer' => 'Stern',
          'year' => 2003,
          'players' => 4,
@@ -1229,7 +1229,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Sopranos',
+         'name' => 'Sopranos',
          'manufacturer' => 'Stern',
          'year' => 2005,
          'players' => 4,
@@ -1373,7 +1373,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Rolling Stones',
+         'name' => 'Rolling Stones',
          'manufacturer' => 'Stern',
          'year' => 2011,
          'players' => 4,

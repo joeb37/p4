@@ -1,13 +1,16 @@
 @extends('layouts.master')
 
 @section('title')
-    New England Pinball Locator
+    Edit location
 @stop
 
 @section('content')
-    <h2>Find Places to Play Pinball!</h2>
 
-    <form method='GET' action='/location/query'>
+    <h1>Edit location</h1>
+
+    <form method='POST' action='/location/edit'>
+
+        <input type="hidden" name='id' value="{{ $location->id }}" >
 
         {{ csrf_field() }}
 
@@ -17,7 +20,7 @@
                 type='text'
                 id='name'
                 name='name'
-                value='{{ old('name','') }}'
+                value='{{ $location->name }}'
             >
            <div class='error'>{{ $errors->first('name') }}</div>
         </div>
@@ -28,7 +31,7 @@
                type='text'
                id='street_address'
                name='street_address'
-               value='{{ old('street_address','') }}'
+               value='{{ $location->street_address }}'
            >
            <div class='error'>{{ $errors->first('street_address') }}</div>
         </div>
@@ -39,7 +42,7 @@
                type='text'
                id='city'
                name='city'
-               value='{{ old('city','') }}'
+               value='{{ $location->city }}'
            >
            <div class='error'>{{ $errors->first('city') }}</div>
         </div>
@@ -49,7 +52,7 @@
            <select name='state' id='state'>
                <option value=''></option>
                @foreach($states_for_dropdown as $state_abbrev => $state_name)
-                   <?php $selected = (old('state', '') == $state_abbrev) ? 'SELECTED' : '' ?>
+                   <?php $selected = $location->state == $state_abbrev ? 'SELECTED' : '' ?>
                    <option value='{{$state_abbrev}}' {{$selected}}>{{$state_name}}</option>
                @endforeach
            </select>
@@ -62,7 +65,7 @@
                type='text'
                id='zip'
                name='zip'
-               value='{{ old('zip','') }}'
+               value='{{ $location->zip }}'
            >
            <div class='error'>{{ $errors->first('zip') }}</div>
         </div>
@@ -72,7 +75,7 @@
            <select name='business_type' id='business_type'>
                <option value='' ></option>
                @foreach($business_types_for_dropdown as $key => $value)
-                   <?php $selected = (old('business_type', '') == $key) ? 'SELECTED' : '' ?>
+                   <?php $selected = $location->business_type == $key ? 'SELECTED' : '' ?>
                    <option value='{{$key}}' {{$selected}}>{{$value}}</option>
                @endforeach
            </select>
@@ -84,14 +87,14 @@
            <select name='payment_type' id='payment_type'>
                <option value=''></option>
                @foreach($payments_for_dropdown as $key => $value)
-                   <?php $selected = (old('payment_type', '') == $key) ? 'SELECTED' : '' ?>
+                   <?php $selected = $location->payment_type == $key ? 'SELECTED' : '' ?>
                    <option value='{{$key}}' {{$selected}}>{{$value}}</option>
                @endforeach
            </select>
            <div class='error'>{{ $errors->first('payment_type') }}</div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Find Locations</button>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
 
         {{--
         <ul class=''>
@@ -109,6 +112,5 @@
 
     </form>
 
-    <a href="/location/create">Create a new location</a>
 
 @stop

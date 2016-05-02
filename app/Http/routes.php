@@ -43,7 +43,14 @@ Route::get('/show-login-status', function() {
 # Home Page
 # ------------------------------------
 Route::get('/', function () {
-    return view('welcome');
+    $states_for_dropdown = \p4\Location::state_list();
+    $payments_for_dropdown = \p4\Location::payment_type_list();
+    $business_types_for_dropdown = \p4\Location::business_type_list();
+
+    return view('welcome')
+        ->with('states_for_dropdown', $states_for_dropdown)
+        ->with('payments_for_dropdown', $payments_for_dropdown)
+        ->with('business_types_for_dropdown', $business_types_for_dropdown);
 });
 
 # ------------------------------------

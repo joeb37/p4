@@ -12,47 +12,47 @@ class Location extends Model
         return $this->hasMany('\App\Game');
     }
 
-    public static function states_for_dropdown() {
+    public static function state_list() {
 
-        $states_for_dropdown = [];
+        $state_list = [];
         //key = State Abbreviation
         //value = State Name
 
-        $states_for_dropdown['CT'] = "Connecticut";
-        $states_for_dropdown['RI'] = "Rhode Island";
-        $states_for_dropdown['MA'] = "Massachusetts";
-        $states_for_dropdown['NH'] = "New Hampshire";
-        $states_for_dropdown['VT'] = "Vermont";
-        $states_for_dropdown['ME'] = "Maine";
+        $state_list['CT'] = "Connecticut";
+        $state_list['RI'] = "Rhode Island";
+        $state_list['MA'] = "Massachusetts";
+        $state_list['NH'] = "New Hampshire";
+        $state_list['VT'] = "Vermont";
+        $state_list['ME'] = "Maine";
 
-        return $states_for_dropdown;
+        return $state_list;
     }
 
-    public static function payments_for_dropdown() {
+    public static function payment_type_list() {
 
-        $payments_for_dropdown = [];
+        $payment_type_list = [];
 
-        $payments_for_dropdown['BillsCoins'] = "Bills or Coins";
-        $payments_for_dropdown['Tokens'] = "Tokens";
-        $payments_for_dropdown['OnePrice'] = "Pay One Price";
-        $payments_for_dropdown['Free'] = "Free Play";
+        $payment_type_list['BillsCoins'] = "Games take bills or coins";
+        $payment_type_list['Tokens'] = "Games take tokens";
+        $payment_type_list['OnePrice'] = "Pay one price to play games";
+        $payment_type_list['Free'] = "Games are set to free play";
 
-        return $payments_for_dropdown;
+        return $payment_type_list;
     }
 
-    public static function business_types_for_dropdown() {
+    public static function business_type_list() {
 
-        $business_types_for_dropdown = [];
+        $business_type_list = [];
 
-        $business_types_for_dropdown['Arcade'] = "Arcade";
-        $business_types_for_dropdown['EntCent'] = "Entertainment Center";
-        $business_types_for_dropdown['Bowl'] = "Bowling Alley";
-        $business_types_for_dropdown['Bar'] = "Bar";
-        $business_types_for_dropdown['Restaurant'] = "Restaurant";
-        $business_types_for_dropdown['OtherAll'] = "Other - All Ages";
-        $business_types_for_dropdown['Other21Plus'] = "Other - 21+";
+        $business_type_list['Arcade'] = "Arcade";
+        $business_type_list['EntCent'] = "Entertainment Center";
+        $business_type_list['Bowl'] = "Bowling Alley";
+        $business_type_list['Bar'] = "Bar";
+        $business_type_list['Restaurant'] = "Restaurant";
+        $business_type_list['OtherAll'] = "Other - All Ages";
+        $business_type_list['Other21Plus'] = "Other - 21+";
 
-        return $business_types_for_dropdown;
+        return $business_type_list;
     }
 
 }
