@@ -5,110 +5,78 @@
 @stop
 
 @section('content')
-    <h2>Find Places to Play Pinball!</h2>
+    <div class="container">
+        <div class="col-md-12 well content-form">
+            <h2>Find Places to Play Pinball!</h2>
 
-    <form method='GET' action='/location/query'>
+            <a href="/location/create" class="btn">Create a new location</a>
 
-        {{ csrf_field() }}
+            <form method='GET' action='/location/query'>
+                <div class="row">
+                    <div class="col-md-6">
 
-        <div class='form-group'>
-           <label>Business Name:</label>
-            <input
-                type='text'
-                id='name'
-                name='name'
-                value='{{ old('name','') }}'
-            >
-           <div class='error'>{{ $errors->first('name') }}</div>
+                        {{ csrf_field() }}
+
+                        <div class='form-group'>
+                           <label for="name">Business Name:</label>
+                            <input
+                                class="form-control"
+                                type='text'
+                                id='name'
+                                name='name'
+                                value='{{ old('name','') }}'
+                            >
+                        </div>
+
+                        <div class='form-group'>
+                           <label for="city">City:</label>
+                           <input
+                                class="form-control"
+                                type='text'
+                                id='city'
+                                name='city'
+                                value='{{ old('city','') }}'
+                           >
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3" >
+                        <div class='form-group'>
+                           <label for="state">State:</label>
+                           <select name='state' id='state' class="form-control">
+                               <option value=''></option>
+                               @foreach($states_for_dropdown as $state_abbrev => $state_name)
+                                   <?php $selected = (old('state', '') == $state_abbrev) ? 'SELECTED' : '' ?>
+                                   <option value='{{$state_abbrev}}' {{$selected}}>{{$state_name}}</option>
+                               @endforeach
+                           </select>
+                        </div>
+                        <div class='form-group'>
+                           <label for="zip">Zip:</label>
+                           <input
+                                class="form-control"
+                                type='text'
+                                id='zip'
+                                name='zip'
+                                value='{{ old('zip','') }}'
+                           >
+                        </div>
+                        <div class='form-group'>
+                           <label for="business_type">Type of Business:</label>
+                           <select name='business_type' id='business_type' class="form-control">
+                               <option value='' ></option>
+                               @foreach($business_types_for_dropdown as $key => $value)
+                                   <?php $selected = (old('business_type', '') == $key) ? 'SELECTED' : '' ?>
+                                   <option value='{{$key}}' {{$selected}}>{{$value}}</option>
+                               @endforeach
+                           </select>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Find Locations</button>
+                <button type="reset" class="btn">Clear Form</button>
+            </form>
         </div>
-
-        <div class='form-group'>
-           <label>Address:</label>
-           <input
-               type='text'
-               id='street_address'
-               name='street_address'
-               value='{{ old('street_address','') }}'
-           >
-           <div class='error'>{{ $errors->first('street_address') }}</div>
-        </div>
-
-        <div class='form-group'>
-           <label>City:</label>
-           <input
-               type='text'
-               id='city'
-               name='city'
-               value='{{ old('city','') }}'
-           >
-           <div class='error'>{{ $errors->first('city') }}</div>
-        </div>
-
-        <div class='form-group'>
-           <label>State:</label>
-           <select name='state' id='state'>
-               <option value=''></option>
-               @foreach($states_for_dropdown as $state_abbrev => $state_name)
-                   <?php $selected = (old('state', '') == $state_abbrev) ? 'SELECTED' : '' ?>
-                   <option value='{{$state_abbrev}}' {{$selected}}>{{$state_name}}</option>
-               @endforeach
-           </select>
-           <div class='error'>{{ $errors->first('state') }}</div>
-        </div>
-
-        <div class='form-group'>
-           <label>Zip:</label>
-           <input
-               type='text'
-               id='zip'
-               name='zip'
-               value='{{ old('zip','') }}'
-           >
-           <div class='error'>{{ $errors->first('zip') }}</div>
-        </div>
-
-        <div class='form-group'>
-           <label>Type of Business:</label>
-           <select name='business_type' id='business_type'>
-               <option value='' ></option>
-               @foreach($business_types_for_dropdown as $key => $value)
-                   <?php $selected = (old('business_type', '') == $key) ? 'SELECTED' : '' ?>
-                   <option value='{{$key}}' {{$selected}}>{{$value}}</option>
-               @endforeach
-           </select>
-           <div class='error'>{{ $errors->first('business_type') }}</div>
-        </div>
-
-        <div class='form-group'>
-           <label>Payment Method:</label>
-           <select name='payment_type' id='payment_type'>
-               <option value=''></option>
-               @foreach($payments_for_dropdown as $key => $value)
-                   <?php $selected = (old('payment_type', '') == $key) ? 'SELECTED' : '' ?>
-                   <option value='{{$key}}' {{$selected}}>{{$value}}</option>
-               @endforeach
-           </select>
-           <div class='error'>{{ $errors->first('payment_type') }}</div>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Find Locations</button>
-
-        {{--
-        <ul class=''>
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-        --}}
-
-        <div class='error'>
-            @if(count($errors) > 0)
-                Please correct the errors above and try again.
-            @endif
-        </div>
-
-    </form>
-
-    <a href="/location/create">Create a new location</a>
-
+    </div>
 @stop

@@ -1220,7 +1220,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'Ripley\'s Belive it or Not!',
+         'name' => 'Ripley\'s Believe it or Not!',
          'manufacturer' => 'Stern',
          'year' => 2004,
          'players' => 4,
@@ -1427,7 +1427,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'The Walking Dead',
+         'name' => 'Walking Dead',
          'manufacturer' => 'Stern',
          'year' => 2014,
          'players' => 4,
@@ -1580,7 +1580,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'Black Night 2000',
+         'name' => 'Black Knight 2000',
          'manufacturer' => 'Williams',
          'year' => 1989,
          'players' => 4,

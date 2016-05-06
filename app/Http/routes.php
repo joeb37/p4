@@ -17,8 +17,8 @@
 Route::get('/login', 'Auth\AuthController@getLogin');
 Route::post('/login', 'Auth\AuthController@postLogin');
 
-#Route::get('/register', 'Auth\AuthController@getRegister');
-#Route::post('/register', 'Auth\AuthController@postRegister');
+Route::get('/register', 'Auth\AuthController@getRegister');
+Route::post('/register', 'Auth\AuthController@postRegister');
 
 Route::get('/logout', 'Auth\AuthController@logout');
 
@@ -58,11 +58,14 @@ Route::get('/', function () {
 # ------------------------------------
 Route::get('/location/query={query?}', 'LocationController@getQuery');
 Route::get('/location/show/{id?}', 'LocationController@getShow');
-Route::get('/location/create', 'LocationController@getCreate');
-Route::post('/location/create', 'LocationController@postCreate');
-Route::get('/location/edit/{id?}', 'LocationController@getEdit');
-Route::post('/location/edit', 'LocationController@postEdit');
-Route::get('/location/delete/{id?}', 'LocationController@getDelete');
+
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/location/create', 'LocationController@getCreate');
+    Route::post('/location/create', 'LocationController@postCreate');
+    Route::get('/location/edit/{id?}', 'LocationController@getEdit');
+    Route::post('/location/edit', 'LocationController@postEdit');
+    Route::get('/location/delete/{id?}', 'LocationController@getDelete');
+});
 
 # ------------------------------------
 # Machines (master table)
@@ -72,11 +75,13 @@ Route::get('/machine/show/{id?}', 'MachineController@getShow');
 # ------------------------------------
 # Games (machines at a location)
 # ------------------------------------
-Route::get('/location/{id?}/game/create', 'GameController@getCreate');
-Route::post('/location/{id?}/game/create', 'GameController@postCreate');
-Route::get('/location/{loc_id?}/game/edit/{game_id?}', 'GameController@getEdit');
-Route::post('/location/{id?}/game/edit', 'GameController@postEdit');
-Route::get('/location/{loc_id?}/game/delete/{game_id?}', 'GameController@getDelete');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/location/{id?}/game/lineup', 'GameController@getLineup');
+    Route::post('/location/{id?}/game/lineup', 'GameController@postLineup');
+    Route::get('/location/{loc_id?}/game/edit/{game_id?}', 'GameController@getEdit');
+    Route::post('/location/{id?}/game/edit', 'GameController@postEdit');
+    Route::get('/location/{loc_id?}/game/delete/{game_id?}', 'GameController@getDelete');
+});
 
 # ------------------------------------
 # Misc debug routes

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Show machine {{ $machine->name }}
+    {{ $machine->name }}
 @stop
 
 @section('head')
@@ -10,11 +10,15 @@
 
 @section('content')
     @if(isset($machine->name))
-        <h2>{{ $machine->name }}</h2>
-        <h3>Manufactured by {{ $machine->manufacturer }} in {{ $machine->year }}</h3>
-        <h3>{{ $machine->players }} players</h3>
+        <div class="container">
+            <div class="col-md-9 well content-form">
+                <h2>{{ $machine->name }}</h2>
+                <h3>Manufactured by {{ $machine->manufacturer }} in {{ $machine->year }}</h3>
+                <h3>{{ $machine->players }} players</h3>
+            </div>
+        </div>
     @else
-        <h1>Machine not found</h1>
+        <h2>Machine not found</h2>
     @endif
 @stop
 

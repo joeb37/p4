@@ -1,0 +1,52 @@
+body {
+    background-image: url('/images/pinball.jpg'); 
+}
+
+.top-banner {
+    margin: 10px 10px 30px 10px;
+    opacity: .50;
+}
+
+.content-form {
+    margin: 10px 10px 30px 10px;
+    opacity: .90;
+}
+
+label {
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+}
+
+.location-title {
+    font-size: 20px;
+}
+
+.result-row {
+    margin-bottom: 10px;
+}
+
+.result-col {
+}
+
+.game-row {
+    font-size: 16px;
+}
+
+.lineup-table {
+    padding: 8px;
+    background-color: #e0e0e0;
+}
+
+.login-info {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+}
+.vbottom {
+    display: inline-block;
+    vertical-align: text-bottom;;
+    float:none;
+}

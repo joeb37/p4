@@ -9,10 +9,10 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet'>
+{{--   <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet'> --}}
 
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet'>
-    <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/lumen/bootstrap.min.css' rel='stylesheet'>
+{{--    <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/lumen/bootstrap.min.css' rel='stylesheet'> --}}
 
     <link href="/css/p4.css" type='text/css' rel='stylesheet'>
 
@@ -23,15 +23,32 @@
 <body>
 
     <header>
-        <h1>New England Pinball Locator</h1>
-        {{--
-        <a href='/'>
-        <img
-        src='http://making-the-internet.s3.amazonaws.com/laravel-foobooks-logo@2x.png'
-        style='width:300px'
-        alt='Foobooks Logo'>
-        </a>
-        --}}
+        <div class="container">
+            <div class="well col-md-12 top-banner" >
+                <div class="row">
+                    <div class="col-md-8 vbottom">
+                        <h1>New England Pinball Locator</h1>
+                        {{--
+                        <a href='/'>
+                        <img
+                        src='http://making-the-internet.s3.amazonaws.com/laravel-foobooks-logo@2x.png'
+                        style='width:300px'
+                        alt='Foobooks Logo'>
+                        </a>
+                        --}}
+                    </div><!--
+                 --><div class="col-md-4 vbottom">
+                        @if(Auth::check())
+                            <span class="login-info">Welcome back, {{Auth::user()->name}}!</span>
+                            <a href='/logout' class="btn">Logout</a>
+                        @else
+                            <a href='/register'>Register</a> <span class="login-info">to get full access to the site.</span><br/>
+                            <span class="login-info">Already registered? </span><a href='/login'>Login</a>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <nav>

@@ -15,163 +15,140 @@ class GamesTableSeeder extends Seeder
         // Acton Bowladrome
         ///////////////////
         $location_id = \p4\Location::where('name', '=', 'Acton Bowladrome')->pluck('id')->first();
-        $machine_id = \p4\Machine::where('name', "=", 'Terminator 3: Rise of the Machines')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
-
-        $machine_id = \p4\Machine::where('name', "=", 'The Getaway: High Speed II')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
-
-        $machine_id = \p4\Machine::where('name', "=", 'Ripley\'s Belive it or Not!')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
-
-        $machine_id = \p4\Machine::where('name', "=", 'Star Wars Episode I')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
-
-        $machine_id = \p4\Machine::where('name', "=", 'Pirates of the Caribbean')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
+        $this->addGame('Simpsons Pinball Party', $location_id, '2 tokens per game', '');
+        $this->addGame('Getaway: High Speed II', $location_id, '2 tokens per game', '');
+        $this->addGame('Ripley\'s Believe it or Not!', $location_id, '2 tokens per game', '');
+        $this->addGame('Star Wars Episode I', $location_id, '2 tokens per game', '');
+        $this->addGame('Pirates of the Caribbean', $location_id, '2 tokens per game', '');
+        $this->addGame('Simpsons Pinball Party', $location_id, '2 tokens per game', '');
 
         //////////////////////
         // Pinz Entertainment
         //////////////////////
         $location_id = \p4\Location::where('name', '=', 'Pinz Entertainment')->pluck('id')->first();
-        $machine_id = \p4\Machine::where('name', "=", 'The Walking Dead')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
+        $this->addGame('Walking Dead', $location_id, '2 tokens per game', '');
 
         //////////////////////
         // Lanes & Games
         //////////////////////
         $location_id = \p4\Location::where('name', '=', 'Lanes & Games')->pluck('id')->first();
-        $machine_id = \p4\Machine::where('name', "=", 'The Addams Family')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
+        $this->addGame('Addams Family', $location_id, '2 tokens per game', '');
+        $this->addGame('Scared Stiff', $location_id, '2 tokens per game', '');
+        $this->addGame('Tron', $location_id, '2 tokens per game', '');
+        $this->addGame('Spider-Man', $location_id, '2 tokens per game', '');
+        $this->addGame('Iron Man', $location_id, '2 tokens per game', '');
+        $this->addGame('X-Men', $location_id, '2 tokens per game', '');
+        $this->addGame('Family Guy', $location_id, '2 tokens per game', '');
+        $this->addGame('AC/DC', $location_id, '2 tokens per game', '');
+        $this->addGame('Simpsons Pinball Party', $location_id, '2 tokens per game', '');
 
-        $machine_id = \p4\Machine::where('name', "=", 'Scared Stiff')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
+        //////////////////////
+        // Barney's Bowlarama
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Barney\'s Bowlarama')->pluck('id')->first();
+        $this->addGame('Indianapolis 500', $location_id, '$0.50 per game', '');
+        $this->addGame('Game Show', $location_id, '$0.50 per game', '');
+        $this->addGame('Whirlwind', $location_id, '$0.50 per game', '');
+        $this->addGame('Phantom of the Opera', $location_id, '$0.50 per game', '');
+        $this->addGame('Addams Family', $location_id, '$0.50 per game', '');
 
-        $machine_id = \p4\Machine::where('name', "=", 'Tron')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
+        //////////////////////
+        // Barre Funland
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Barre Funland')->pluck('id')->first();
+        $this->addGame('Indianapolis 500', $location_id, '$10.00 play all day', '');
+        $this->addGame('Doctor Who', $location_id, '$10.00 play all day', '');
+        $this->addGame('Fish Tales', $location_id, '$10.00 play all day', '');
+        $this->addGame('Junk Yard', $location_id, '$10.00 play all day', '');
+        $this->addGame('Star Wars', $location_id, '$10.00 play all day', '');
+        $this->addGame('Bad Cats', $location_id, '$10.00 play all day', '');
+        $this->addGame('Jurassic Park', $location_id, '$10.00 play all day', '');
+        $this->addGame('Judge Dredd', $location_id, '$10.00 play all day', '');
+        $this->addGame('Medieval Madness', $location_id, '$10.00 play all day', '');
 
-        $machine_id = \p4\Machine::where('name', "=", 'Spider-Man')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
+        //////////////////////
+        // Melvin's
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Melvin\'s')->pluck('id')->first();
+        $this->addGame('Walking Dead', $location_id, '$1.00 per game', '');
+        $this->addGame('Family Guy', $location_id, '$1.00 per game', '');
 
-        $machine_id = \p4\Machine::where('name', "=", 'Iron Man')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
+        //////////////////////
+        // TGI Friday's
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'TGI Friday\'s')->pluck('id')->first();
+        $this->addGame('Simpsons Pinball Party', $location_id, '$0.75 per game', '');
 
-        $machine_id = \p4\Machine::where('name', "=", 'X-Men')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
+        //////////////////////
+        // Super Golf
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Super Golf')->pluck('id')->first();
+        $this->addGame('Walking Dead', $location_id, '$9.99 play all day','');
+        $this->addGame('Family Guy', $location_id, '$9.99 play all day','');
+        $this->addGame('Simpsons', $location_id, '$9.99 play all day','');
+        $this->addGame('World Cup Soccer', $location_id, '$9.99 play all day','');
+        $this->addGame('World Poker Tour', $location_id, '$9.99 play all day','');
+        $this->addGame('Wheel of Fortune', $location_id, '$9.99 play all day','');
 
-        $machine_id = \p4\Machine::where('name', "=", 'Family Guy')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
+        //////////////////////
+        // Shamble's
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Shamble\'s')->pluck('id')->first();
+        $this->addGame('Walking Dead', $location_id, 'Free Play','');
+        $this->addGame('Batman', $location_id, 'Free Play','');
 
-        $machine_id = \p4\Machine::where('name', "=", 'AC/DC')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
+        //////////////////////
+        // Playland
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Playland')->pluck('id')->first();
+        $this->addGame('Walking Dead', $location_id, '2 tokens 1 play; 8 tokens 5 plays','');
+        $this->addGame('Monster Bash', $location_id, '2 tokens 1 play; 8 tokens 5 plays','');
+        $this->addGame('Medieval Madness', $location_id, '2 tokens 1 play; 8 tokens 5 plays','');
+        $this->addGame('Getaway: High Speed II', $location_id, '2 tokens 1 play; 8 tokens 5 plays','');
+        $this->addGame('Lost World', $location_id, '2 tokens 1 play; 8 tokens 5 plays','');
 
-        $machine_id = \p4\Machine::where('name', "=", 'The Simpsons Pinball Party')->pluck('id')->first();
-        DB::table('games')->insert([
-            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-            'location_id' => $location_id,
-            'machine_id' => $machine_id,
-            'condition' => '',
-            'pricing' => '2 tokens per game',
-        ]);
+        //////////////////////
+        // Portsmouth Paintball
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Portsmouth Paintball')->pluck('id')->first();
+        $this->addGame('Gladiators', $location_id, '3 tokens per play','');
+        $this->addGame('Sopranos', $location_id, '3 tokens per play','');
+        $this->addGame('NASCAR', $location_id, '3 tokens per play','');
+        $this->addGame('Police Force', $location_id, '3 tokens per play','');
+
+        //////////////////////
+        // Chester's
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Chester\'s')->pluck('id')->first();
+        $this->addGame('Spider-Man', $location_id, '$1.00 per play','');
+
+        //////////////////////
+        // The Power Station
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'The Power Station')->pluck('id')->first();
+        $this->addGame('Bonebusters', $location_id, '2 tokens per game','');
+        $this->addGame('Transporter', $location_id, '2 tokens per game','');
+        $this->addGame('Black Knight 2000', $location_id, '2 tokens per game','');
+        $this->addGame('No Fear', $location_id, '2 tokens per game','');
+        $this->addGame('Jokerz', $location_id, '2 tokens per game','');
+        $this->addGame('Wrestlemania', $location_id, '2 tokens per game','');
+        $this->addGame('Mousin\' Around', $location_id, '2 tokens per game','');
+        $this->addGame('Pool Sharks', $location_id, '2 tokens per game','');
+        $this->addGame('NBA', $location_id, '3 tokens per game','');
+        $this->addGame('Big Buck Hunter', $location_id, '3 tokens per game','');
 
     }
+
+    public function addGame($gameName, $location_id, $pricing, $condition) {
+        $machine_id = \p4\Machine::where('name', "=", $gameName)->pluck('id')->first();
+        DB::table('games')->insert([
+            'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+            'location_id' => $location_id,
+            'machine_id' => $machine_id,
+            'condition' => $condition,
+            'pricing' => $pricing,
+        ]);
+    }
+
 }

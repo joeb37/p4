@@ -14,11 +14,13 @@ class LocationController extends Controller {
     */
     public function getQuery(Request $request) {
 
-        $payment_type_list = \p4\Location::payment_type_list();
         $business_type_list = \p4\Location::business_type_list();
+        $payment_type_list = \p4\Location::payment_type_list();
 
         // Build a query
-        $locationQuery = DB::table('locations');
+        $locationQuery = DB::table('locations')
+            ->join('games','games.location_id','=','locations.id')
+            ->select(DB::raw('locations.*, count(locations.name) as game_total'));
         if ($request->has('name')) {
             $locationQuery->where('name', 'like', '%'.$request->input('name').'%');
         }
@@ -34,9 +36,8 @@ class LocationController extends Controller {
         if ($request->has('business_type')) {
             $locationQuery->where('business_type', '=', $request->input('business_type'));
         }
-        if ($request->has('payment_type')) {
-            $locationQuery->where('payment_type', '=', $request->input('payment_type'));
-        }
+
+        $locationQuery->groupBy('locations.name');
 
         // Execute the query
         $locations = $locationQuery->get();
@@ -66,7 +67,7 @@ class LocationController extends Controller {
         $payment_type_list = \p4\Location::payment_type_list();
         $business_type_list = \p4\Location::business_type_list();
 
-        $games = DB::table('games')->where('location_id', '=', $id)->join('machines', 'games.machine_id','=','machines.id')->get();
+        $games = DB::table('games')->select('games.id', 'games.machine_id', 'machines.name', 'machines.manufacturer')->where('location_id', '=', $id)->join('machines', 'games.machine_id','=','machines.id')->get();
 
         return view('locations.details')
             ->with('location', $location)
@@ -172,24 +173,24 @@ class LocationController extends Controller {
     /**
      * Responds to requests to GET /location/delete/{id?}
      */
-    public function getDelete($id) {
+    public function getDelete($id = null) {
+
+        $location = \p4\Location::find($id);
 
         // Make sure we can find the location that the user wants to delete
-        try
-        {
-            $location = \p4\Location::findOrFail($id);
-        }
-        catch (ModelNotFoundException $exception)
-        {
+        if (is_null($location)) {
+            \Session::flash('message', 'Location not found');
             return redirect('/');
         }
 
-        if ($location->first()) {
-            $name = $location->name;
-            $location->delete();
+        // Remove Games at this Location
+        $deletedGames = \p4\Game::where('location_id', $location->id)->delete();
 
-            \Session::flash('message', $name.' was deleted');
-        }
+        // Remove this location
+        $name = $location->name;
+        $location->delete();
+
+        \Session::flash('message', $name.' has been deleted');
 
         return redirect('/');
     }
