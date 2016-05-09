@@ -4,13 +4,14 @@
     New England Pinball Locator
 @stop
 
+@section('navigation')
+    <li role="presentation" ><a href="/location/create" class="btn">Create a new location</a></li>
+@stop
+
 @section('content')
     <div class="container">
         <div class="col-md-12 well content-form">
             <h2>Find Places to Play Pinball!</h2>
-
-            <a href="/location/create" class="btn">Create a new location</a>
-
             <form method='GET' action='/location/query'>
                 <div class="row">
                     <div class="col-md-6">

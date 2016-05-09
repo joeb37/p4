@@ -4,21 +4,18 @@
     {{$location->name}}
 @stop
 
+@section('navigation')
+    <li role="presentation"><a href="/location/edit/{{$location->id}}">Edit this location</a></li>
+    <li role="presentation"><a href="/location/delete/{{$location->id}}">Delete this location</a></li>
+    <li role="presentation"><a href="/location/{{$location->id}}/game/lineup">Update Game Lineup</a></li>
+@stop
+
 @section('content')
     <div class="container">
         <div class="col-md-9 well content-form">
             <div class="row">
                 <div class="col-md-3">
                     <h2>{{$location->name}}</h2>
-                </div>
-                <div class="col-md-3">
-                    <a class="btn btn-default" href="/location/edit/{{$location->id}}">Edit this location</a>
-                </div>
-                <div class="col-md-3">
-                    <a class="btn btn-default" href="/location/delete/{{$location->id}}">Delete this location</a>
-                </div>
-                <div class="col-md-3">
-                    <a class="btn btn-default" href="/location/{{$location->id}}/game/lineup">Update Game Lineup</a>
                 </div>
             </div>
             <div class="row">

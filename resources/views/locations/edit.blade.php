@@ -4,6 +4,10 @@
     Edit location
 @stop
 
+@section('navigation')
+    <li role="presentation"><a href="/location/show/{{$location->id}}">Return to {{$location->name}}</a></li>
+@stop
+
 @section('content')
     <div class="container">
         <div class="col-md-9 well content-form">

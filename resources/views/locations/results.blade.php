@@ -4,6 +4,9 @@
     Location Search Results
 @stop
 
+@section('navigation')
+@stop
+
 @section('content')
     <div class="container">
         <div class="col-md-9 well content-form">
@@ -22,7 +25,12 @@
                         {{$payment_type_list[$location->payment_type]}}
                     </div>
                     <div class="col-md-3 result-col" >
-                        {{$location->game_total}} games available
+                        {{$location->game_total}}
+                        @if($location->game_total == 1)
+                             game available
+                        @else
+                             games available
+                        @endif
                     </div>
                 </div>
             @endforeach

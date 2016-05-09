@@ -19,8 +19,8 @@ class LocationController extends Controller {
 
         // Build a query
         $locationQuery = DB::table('locations')
-            ->join('games','games.location_id','=','locations.id')
-            ->select(DB::raw('locations.*, count(locations.name) as game_total'));
+            ->leftJoin('games','games.location_id','=','locations.id')
+            ->select(DB::raw('locations.*, count(games.id) as game_total'));
         if ($request->has('name')) {
             $locationQuery->where('name', 'like', '%'.$request->input('name').'%');
         }
@@ -107,11 +107,11 @@ class LocationController extends Controller {
 
         # Mass Assignment
         $data = $request->only('name', 'street_address', 'city', 'state', 'zip', 'business_type', 'payment_type');
-        \p4\Location::create($data);
+        $location = \p4\Location::create($data);
 
         \Session::flash('message', $request->name.' was added');
 
-        return redirect('/');
+        return redirect('/location/show/'.$location->id);
     }
 
     /**
@@ -167,7 +167,7 @@ class LocationController extends Controller {
 
         \Session::flash('message', $request->name.' was updated');
 
-        return redirect('/');
+        return redirect('/location/show/'.$location->id);
     }
 
     /**

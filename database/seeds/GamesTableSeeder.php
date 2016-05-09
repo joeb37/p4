@@ -137,6 +137,65 @@ class GamesTableSeeder extends Seeder
         $this->addGame('NBA', $location_id, '3 tokens per game','');
         $this->addGame('Big Buck Hunter', $location_id, '3 tokens per game','');
 
+        //////////////////////
+        // The Gas Works
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'The Gas Works')->pluck('id')->first();
+        $this->addGame('Flash', $location_id, '$0.75 per game','');
+        $this->addGame('Phantom of the Opera', $location_id, '$0.75 per game','');
+        $this->addGame('Deadly Weapon', $location_id, '$0.75 per game','');
+        $this->addGame('Diner', $location_id, '$0.75 per game','');
+
+        //////////////////////
+        // Federal Lanes
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Federal Lanes')->pluck('id')->first();
+        $this->addGame('Avatar', $location_id, '2 tokens per game','');
+        $this->addGame('Avengers', $location_id, '2 tokens per game','');
+
+        //////////////////////
+        // Shipley's
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Shipley\'s')->pluck('id')->first();
+        $this->addGame('Cirqus Voltaire', $location_id, '2 tokens per game','');
+        $this->addGame('Scared Stiff', $location_id, '2 tokens per game','');
+        $this->addGame('World Cup Soccer', $location_id, '2 tokens per game','');
+        $this->addGame('No Good Gofers', $location_id, '2 tokens per game','');
+        $this->addGame('Getaway: High Speed II', $location_id, '2 tokens per game','');
+        $this->addGame('White Water', $location_id, '2 tokens per game','');
+
+        //////////////////////
+        // Family Funland
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Family Funland')->pluck('id')->first();
+        $this->addGame('Pirates of the Caribbean', $location_id, '3 tokens per game','');
+        $this->addGame('Lord of the Rings', $location_id, '3 tokens per game','');
+        $this->addGame('Wheel of Fortune', $location_id, '3 tokens per game','');
+        $this->addGame('Sharkey\'s Shootout', $location_id, '3 tokens per game','');
+
+        //////////////////////
+        // Highway Bowl
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Highway Bowl')->pluck('id')->first();
+        $this->addGame('Big Hurt', $location_id, '2 tokens per game','');
+        $this->addGame('Jackbot', $location_id, '2 tokens per game','');
+        $this->addGame('Batman Forever', $location_id, '2 tokens per game','');
+        $this->addGame('Johnny Mnemonic', $location_id, '2 tokens per game','');
+        $this->addGame('Congo', $location_id, '2 tokens per game','');
+        $this->addGame('Attack from Mars', $location_id, '2 tokens per game','');
+        $this->addGame('Safecracker', $location_id, '2 tokens per game','');
+
+        //////////////////////
+        // The Sherwood
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'The Sherwood')->pluck('id')->first();
+        $this->addGame('Break Shot', $location_id, 'Play all day $5.00','');
+        $this->addGame('Tales of the Arabian Nights', $location_id, 'Play all day $5.00','');
+        $this->addGame('Independence Day', $location_id, 'Play all day $5.00','');
+        $this->addGame('NBA Fastbreak', $location_id, 'Play all day $5.00','');
+        $this->addGame('High Roller Casino', $location_id, 'Play all day $5.00','');
+        $this->addGame('Austin Powers', $location_id, 'Play all day $5.00','');
+        $this->addGame('Monopoly', $location_id, 'Play all day $5.00','');
     }
 
     public function addGame($gameName, $location_id, $pricing, $condition) {

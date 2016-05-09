@@ -52,12 +52,14 @@
     </header>
 
     <nav>
-        {{--
-        <ul>
-            <li><a href='/books'>View all books</a></li>
-            <li><a href='/book/create'>Add a new book</a></li>
-        </ul>
-        --}}
+        <div class="container">
+            <div class="well well-sm" >
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href='/'>Home</a></li>
+                    @yield('navigation')
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <section>

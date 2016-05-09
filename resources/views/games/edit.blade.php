@@ -8,6 +8,11 @@
     <!-- <link href='/css/machine/show.css' rel='stylesheet'> -->
 @stop
 
+@section('navigation')
+    <li role="presentation"><a href="/location/show/{{$location->id}}">Return to {{$location->name}}</a></li>
+    <li role="presentation"><a href="/location/{{$location->id}}/game/delete/{{$game->id}}">Delete this game</a></li>
+@stop
+
 @section('content')
     <div class="container">
         <div class="col-md-9 well content-form">
@@ -48,9 +53,6 @@
                         <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </div>
-                <div class="row">
-                    <a href="/location/{{$location->id}}/game/delete/{{$game->id}}">Delete this game</a>
-                <div>
             </form>
         </div>
     </div>

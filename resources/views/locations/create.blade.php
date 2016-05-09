@@ -101,13 +101,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2">
-                        <button type="submit" class="btn btn-primary">Add Location</button>
-                    </div>
                     <div class="col-md-6 error" style="margin-top: 6px;">
                         @if(count($errors) > 0)
                             Please correct the errors above and try again.
                         @endif
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary">Add Location</button>
                     </div>
                 </div>
             </form>
