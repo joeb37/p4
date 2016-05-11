@@ -10,7 +10,7 @@
 
 @section('navigation')
     <li role="presentation"><a href="/location/show/{{$location->id}}">Return to {{$location->name}}</a></li>
-    <li role="presentation"><a href="/location/{{$location->id}}/game/delete/{{$game->id}}">Delete this game</a></li>
+    <li role="presentation"><a href="/location/{{$location->id}}/game/confirm-delete/{{$game->id}}">Delete this game</a></li>
 @stop
 
 @section('content')

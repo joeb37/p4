@@ -64,6 +64,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/location/create', 'LocationController@postCreate');
     Route::get('/location/edit/{id?}', 'LocationController@getEdit');
     Route::post('/location/edit', 'LocationController@postEdit');
+    Route::get('/location/confirm-delete/{id?}', 'LocationController@getConfirmDelete');
     Route::get('/location/delete/{id?}', 'LocationController@getDelete');
 });
 
@@ -80,6 +81,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/location/{id?}/game/lineup', 'GameController@postLineup');
     Route::get('/location/{loc_id?}/game/edit/{game_id?}', 'GameController@getEdit');
     Route::post('/location/{id?}/game/edit', 'GameController@postEdit');
+    Route::get('/location/{loc_id?}/game/confirm-delete/{game_id?}', 'GameController@getConfirmDelete');
     Route::get('/location/{loc_id?}/game/delete/{game_id?}', 'GameController@getDelete');
 });
 

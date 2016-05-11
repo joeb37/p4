@@ -9,7 +9,7 @@ class Location extends Model
     protected $fillable = ['name', 'street_address', 'city', 'state', 'zip', 'business_type', 'payment_type'];
 
     public function games() {
-        return $this->hasMany('\App\Game');
+        return $this->hasMany('\p4\Game');
     }
 
     public static function state_list() {

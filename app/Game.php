@@ -9,11 +9,11 @@ use Carbon;
 class Game extends Model
 {
     public function machine() {
-        return $this->belongsTo('\App\Machine');
+        return $this->belongsTo('\p4\Machine');
     }
 
     public function location() {
-        return $this->belongsTo('\App\Location');
+        return $this->belongsTo('\p4\Location');
     }
 
     public static function machines_at_location($loc_id) {
@@ -47,11 +47,6 @@ class Game extends Model
         Game::where('location_id','=',$loc_id)
             ->where('machine_id','=',$machine_id)
             ->delete();
-    }
-
-    public static function deleteGame($game_id) {
-
-        Game::where('id','=',$game_id)->delete();
     }
 
 }

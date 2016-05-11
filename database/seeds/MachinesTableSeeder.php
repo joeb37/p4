@@ -590,7 +590,7 @@ class MachinesTableSeeder extends Seeder
          DB::table('machines')->insert([
          'created_at' => Carbon\Carbon::now()->toDateTimeString(),
          'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
-         'name' => 'Popeye Saves the Earth',
+         'name' => 'Popeye',
          'manufacturer' => 'Bally',
          'year' => 1994,
          'players' => 4,

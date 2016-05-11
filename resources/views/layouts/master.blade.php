@@ -26,26 +26,33 @@
         <div class="container">
             <div class="well col-md-12 top-banner" >
                 <div class="row">
-                    <div class="col-md-8 vbottom">
-                        <h1>New England Pinball Locator</h1>
-                        {{--
+                    <div class="col-md-1">
                         <a href='/'>
                         <img
-                        src='http://making-the-internet.s3.amazonaws.com/laravel-foobooks-logo@2x.png'
-                        style='width:300px'
-                        alt='Foobooks Logo'>
+                        src='/images/bumper-cap.jpg'
+                        style='width:80px'
+                        alt='Bumper Cap'>
                         </a>
-                        --}}
                     </div><!--
-                 --><div class="col-md-4 vbottom">
-                        @if(Auth::check())
-                            <span class="login-info">Welcome back, {{Auth::user()->name}}!</span>
-                            <a href='/logout' class="btn">Logout</a>
-                        @else
-                            <a href='/register'>Register</a> <span class="login-info">to get full access to the site.</span><br/>
-                            <span class="login-info">Already registered? </span><a href='/login'>Login</a>
-                        @endif
+                 --><div class="col-md-7">
+                        <h1>New England Pinball Locator</h1>
+                    </div><!--
+                 --><div class="col-md-4">
+                        <div style="padding-top:20px;">
+                            @if(Auth::check())
+                                <span class="login-info">Welcome back, {{Auth::user()->name}}!</span>
+                                <a href='/logout' class="btn">Logout</a>
+                            @else
+                                <a href='/register'>Register</a> <span class="login-info">to get full access to the site.</span><br/>
+                                <span class="login-info">Already registered? </span><a href='/login'>Login</a>
+                            @endif
+                        </div>
                     </div>
+                </div>
+                <div class="row">
+                    @if(Session::get('message') != null)
+                        <div class='flash_message'>{{ Session::get('message') }}</div>
+                    @endif
                 </div>
             </div>
         </div>

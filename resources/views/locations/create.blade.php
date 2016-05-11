@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-8 form-group">
+                    <div class="col-md-4 form-group">
                        <label for="city">City:</label>
                        <input
                             class="form-control"
@@ -49,9 +49,7 @@
                        >
                        <div class='error'>{{ $errors->first('city') }}</div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-3 form-group">
                         <label for="state">State:</label>
                         <select name='state' id='state' class="form-control">
                             <option value=''></option>
@@ -62,7 +60,7 @@
                         </select>
                         <div class='error'>{{ $errors->first('state') }}</div>
                     </div>
-                    <div class="col-md-4 form-group">
+                    <div class="col-md-2 form-group">
                         <label for="zip">Zip:</label>
                         <input
                             class="form-control"

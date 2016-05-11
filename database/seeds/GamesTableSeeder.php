@@ -196,6 +196,74 @@ class GamesTableSeeder extends Seeder
         $this->addGame('High Roller Casino', $location_id, 'Play all day $5.00','');
         $this->addGame('Austin Powers', $location_id, 'Play all day $5.00','');
         $this->addGame('Monopoly', $location_id, 'Play all day $5.00','');
+
+        //////////////////////
+        // Fun Bowl Windsor
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Fun Bowl Windsor')->pluck('id')->first();
+        $this->addGame('Whirlwind', $location_id, '$0.50 per game','');
+        $this->addGame('Car Hop', $location_id, '$0.50 per game','');
+        $this->addGame('Hurricane', $location_id, '$0.50 per game','');
+        $this->addGame('Class of 1812', $location_id, '$0.50 per game','');
+        $this->addGame('Scared Stiff', $location_id, '$1.00 per game','');
+
+        //////////////////////
+        // Fairfield Cinema 88
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Fairfield Cinema 88')->pluck('id')->first();
+        $this->addGame('Avatar', $location_id, '$1.00 per game','');
+        $this->addGame('Shrek', $location_id, '$1.00 per game','');
+
+        //////////////////////
+        // Hoffman's
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Hoffman\'s')->pluck('id')->first();
+        $this->addGame('Scared Stiff', $location_id, '$0.75 per game','');
+        $this->addGame('Cirqus Voltaire', $location_id, '$0.75 per game','');
+        $this->addGame('World Poker Tour', $location_id, '$0.75 per game','');
+        $this->addGame('Monopoly', $location_id, '$0.75 per game','');
+        $this->addGame('Junk Yard', $location_id, '$0.75 per game','');
+        $this->addGame('No Good Gofers', $location_id, '$0.75 per game','');
+        $this->addGame('World Cup Soccer', $location_id, '$0.75 per game','');
+        $this->addGame('Champion Pub', $location_id, '$0.75 per game','');
+        $this->addGame('Medieval Madness', $location_id, '$0.75 per game','');
+        $this->addGame('Shadow', $location_id, '$0.75 per game','');
+        $this->addGame('Twilight Zone', $location_id, '$0.75 per game','');
+
+        //////////////////////
+        // Shumway's
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Shumway\'s')->pluck('id')->first();
+        $this->addGame('Twilight Zone', $location_id, '2 tokens per game','');
+        $this->addGame('Jurassic Park', $location_id, '2 tokens per game','');
+        $this->addGame('Congo', $location_id, '2 tokens per game','');
+        $this->addGame('Judge Dredd', $location_id, '2 tokens per game','');
+
+        //////////////////////
+        // Game-a-Rama
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'Game-a-Rama')->pluck('id')->first();
+        $this->addGame('Last Action Hero', $location_id, '3 tokens per game','');
+        $this->addGame('Star Trek: The Next Generation', $location_id, '3 tokens per game','');
+        $this->addGame('Flintstones', $location_id, '3 tokens per game','');
+        $this->addGame('Corvette', $location_id, '3 tokens per game','');
+        $this->addGame('Maverick', $location_id, '3 tokens per game','');
+        $this->addGame('Red and Ted\'s Roadshow', $location_id, '3 tokens per game','');
+        $this->addGame('Dirty Harry', $location_id, '3 tokens per game','');
+        $this->addGame('Theatre of Magic', $location_id, '3 tokens per game','');
+        $this->addGame('Johnny Mnemonic', $location_id, '3 tokens per game','');
+        $this->addGame('Attack from Mars', $location_id, '3 tokens per game','');
+        $this->addGame('Airborne', $location_id, '3 tokens per game','');
+
+        //////////////////////
+        // El Dorado
+        //////////////////////
+        $location_id = \p4\Location::where('name', '=', 'El Dorado')->pluck('id')->first();
+        $this->addGame('Star Trek: The Next Generation', $location_id, '$1.00 per game','');
+        $this->addGame('Popeye', $location_id, '$1.00 per game','');
+        $this->addGame('Safecracker', $location_id, '$1.00 per game','');
+        $this->addGame('Twister', $location_id, '$1.00 per game','');
+
     }
 
     public function addGame($gameName, $location_id, $pricing, $condition) {

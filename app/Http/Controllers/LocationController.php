@@ -20,9 +20,10 @@ class LocationController extends Controller {
         // Build a query
         $locationQuery = DB::table('locations')
             ->leftJoin('games','games.location_id','=','locations.id')
+            ->leftJoin('machines', 'games.machine_id', '=', 'machines.id')
             ->select(DB::raw('locations.*, count(games.id) as game_total'));
         if ($request->has('name')) {
-            $locationQuery->where('name', 'like', '%'.$request->input('name').'%');
+            $locationQuery->where('locations.name', 'like', '%'.$request->input('name').'%');
         }
         if ($request->has('city')) {
             $locationQuery->where('city', '=', $request->input('city'));
@@ -35,6 +36,9 @@ class LocationController extends Controller {
         }
         if ($request->has('business_type')) {
             $locationQuery->where('business_type', '=', $request->input('business_type'));
+        }
+        if ($request->has('game_name')) {
+            $locationQuery->where('machines.name', 'like', '%'.$request->input('game_name').'%');
         }
 
         $locationQuery->groupBy('locations.name');
@@ -52,22 +56,21 @@ class LocationController extends Controller {
     /**
      * Responds to requests to GET /location/show/{id?}
      */
-    public function getShow($id) {
+    public function getShow($id = null) {
 
         // Make sure we can find the location that the user wants to see
-        try
-        {
-            $location = \p4\Location::findOrFail($id);
-        }
-        catch (ModelNotFoundException $exception)
-        {
+        $location = \p4\Location::find($id);
+
+        if (is_null($location)) {
+
+            \Session::flash('message', 'Location not found');
             return redirect('/');
         }
 
         $payment_type_list = \p4\Location::payment_type_list();
         $business_type_list = \p4\Location::business_type_list();
 
-        $games = DB::table('games')->select('games.id', 'games.machine_id', 'machines.name', 'machines.manufacturer')->where('location_id', '=', $id)->join('machines', 'games.machine_id','=','machines.id')->get();
+        $games = DB::table('games')->select('games.id', 'games.machine_id', 'machines.name', 'machines.manufacturer', 'machines.year')->where('location_id', '=', $id)->join('machines', 'games.machine_id','=','machines.id')->get();
 
         return view('locations.details')
             ->with('location', $location)
@@ -170,6 +173,14 @@ class LocationController extends Controller {
         return redirect('/location/show/'.$location->id);
     }
 
+    public function getConfirmDelete($id = null) {
+
+        $location = \p4\Location::find($id);
+
+        return view('locations.delete')->with('location', $location);
+
+    }
+
     /**
      * Responds to requests to GET /location/delete/{id?}
      */
@@ -187,10 +198,9 @@ class LocationController extends Controller {
         $deletedGames = \p4\Game::where('location_id', $location->id)->delete();
 
         // Remove this location
-        $name = $location->name;
         $location->delete();
 
-        \Session::flash('message', $name.' has been deleted');
+        \Session::flash('message', $location->name.' has been deleted');
 
         return redirect('/');
     }

@@ -4,7 +4,13 @@ body {
 
 .top-banner {
     margin: 10px 0px 30px 0px;
-    opacity: .50;
+/*    background-color: rgb(201, 229, 221); Mint green */
+    background-color: rgb(229, 221, 201); Manila 
+
+
+
+/*    color: rgb(53,82,74); */
+    color: rgb(82,74, 53);
 }
 
 .content-form {
@@ -33,6 +39,7 @@ label {
 
 .game-row {
     font-size: 16px;
+    padding: 6px;
 }
 
 .lineup-table {
@@ -55,4 +62,14 @@ label {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px
+}
+.note {
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+.intro {
+    color: #808080;
+    font-weight: bolder;
+    font-size: 1.2em;
 }

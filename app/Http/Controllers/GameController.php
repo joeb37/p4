@@ -98,13 +98,28 @@ class GameController extends Controller {
         return redirect('/location/show/'.$id);
     }
 
+    public function getConfirmDelete($loc_id, $game_id) {
+
+        $game = \p4\Game::with('machine')->with('location')->find($game_id);
+
+        return view('games.delete')->with('game', $game);
+    }
+
     /**
      * Responds to requests to GET /location/{loc_id?}/game/delete/{game_id?}
      */
     public function getDelete($loc_id, $game_id) {
 
-        \p4\Game::deleteGame($game_id);
+        $game = \p4\Game::with('machine')->with('location')->find($game_id);
 
+        if (is_null($game)) {
+            \Session::flash('message', 'Game not found');
+            return redirect('/');
+        }
+
+        $game->delete();
+
+        \Session::flash('message', $game->machine->name.' deleted from '.$game->location->name);
         return redirect('/location/show/'.$loc_id);
     }
 

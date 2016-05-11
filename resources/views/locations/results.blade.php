@@ -10,7 +10,16 @@
 @section('content')
     <div class="container">
         <div class="col-md-9 well content-form">
+
+        @if(count($locations) == 0)
+
+            <h2>No locations match the search criteria</h2>
+            <p>Return to the home page to change the search criteria</p>
+
+        @else
+
             <h2>Location Search Results</h2>
+            <p class="note">Note: Many locations are just program test data.</p>
             @foreach($locations as $location)
                 <div class="row result-row">
                     <div class="col-md-5 result-col">
@@ -34,6 +43,9 @@
                     </div>
                 </div>
             @endforeach
+
+        @endif
+
         </div>
     </div>
 @stop
