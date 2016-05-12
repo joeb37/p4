@@ -12,7 +12,7 @@ The New England Pinball Locator will allow players to search for places to play 
 
 
 ## Screencast Demo
-<https://youtu.be/79CVdZbYY3E>
+<https://youtu.be/82tSqUpWqyI>
 
 ## Details for teaching team
 * Users Jill and Jamal are available, or you can create your own.  Registered users have access to the full set of features.
