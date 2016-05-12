@@ -1,27 +1,28 @@
-# Laravel PHP Framework
+# New England Pinball Locator
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Live URL
+<http://p4.joebox.me>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## Description
+The New England Pinball Locator is a searchable, user-modifiable database of places to play pinball in New England
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+Years ago, pinball machines were an essential fixture in almost any bar, bowling alley, arcade, pizza parlor or movie theater. As other forms of entertainment began competing for the same space, pinball was forced aside and it has become harder to find pinball in public places.
 
-## Official Documentation
+The New England Pinball Locator will allow players to search for places to play and show which games are available at each location. Registered users will be able to add new locations, modify existing locations to change the line-up of machines, and add notes about game pricing and condition.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-## Contributing
+## Screencast Demo
+<https://youtu.be/79CVdZbYY3E>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+## Details for teaching team
+* Users Jill and Jamal are available, or you can create your own.  Registered users have access to the full set of features.
+* Though the terms "pinball machine" and "pinball game" can be used interchangeably, I've given them specific meaning within the code. I use "machine" to refer an entry in the master list of machines.  I use "game" to refer to an instance of a particular machine at a particular location. I tried to remain consistent throughout the code.  Users need not be aware of this subtle distinction.
+* Almost all locations are made-up and so noted on the screens.  Locations added by users are inserted into the database with the "real" flag set to "false".
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+## Outside code
+* Bootstrap: http://getbootstrap.com/
+* jQuery: http://jquery.com/
+* Laravel Debugbar https://github.com/barryvdh/laravel-debugbar
+* Laravel 5 log viewer https://github.com/rap2hpoutre/laravel-log-viewer
+* jQuery code to enable the add/remove buttons on the Update Lineup page was derived from
+ a tutorial published at Design Chemical: http://www.designchemical.com/blog/index.php/jquery/create-add-remove-select-lists-using-jquery/

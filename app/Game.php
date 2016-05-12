@@ -28,6 +28,10 @@ class Game extends Model
         return $gameArray;
     }
 
+    /**
+     * Add a new game to this location.  Called by GameContoller for each
+     * game added to a location from the Update Lineup page.
+     */
     public static function addGameToLocation($loc_id, $machine_id) {
 
         $game = new Game;
@@ -42,6 +46,11 @@ class Game extends Model
         $game->save();
     }
 
+
+    /**
+     * Delete a game from this location.  Called by GameContoller for each
+     * game added to a location from the Update Lineup page.
+     */
     public static function deleteGameFromLocation($loc_id, $machine_id) {
 
         Game::where('location_id','=',$loc_id)

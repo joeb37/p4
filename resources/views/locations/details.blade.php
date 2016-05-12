@@ -21,8 +21,10 @@
                 </div>
             </div>
             @if(!$location->real)
-                <div clas="row">
-                    <p class="note">This location represents program test data.  Not an actual location.</p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="note">This location represents program test data.  Not an actual location.</p>
+                    </div>
                 </div>
             @endif
             <div class="row">
@@ -33,11 +35,10 @@
                     <br/>
                 </div>
             </div>
+            <br/>
             <div class="row">
-                <div class="col-md-3">
-                    {{$business_type_list[$location->business_type]}}
-                    <br/>
-                    {{$payment_type_list[$location->payment_type]}}
+                <div class="col-md-12">
+                    <em>{{$business_type_list[$location->business_type]}}</em>&nbsp;&nbsp;<em>{{$payment_type_list[$location->payment_type]}}</em>
                 </div>
             </div>
             <div class="row">

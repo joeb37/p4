@@ -13,6 +13,8 @@
 
         @if(count($locations) == 0)
 
+            {{-- Display a message if there are no matching results --}}
+
             <h2>No locations match the search criteria</h2>
             <p>Return to the home page to change the search criteria</p>
 

@@ -4,13 +4,23 @@ body {
 
 .top-banner {
     margin: 10px 0px 30px 0px;
-/*    background-color: rgb(201, 229, 221); Mint green */
     background-color: rgb(229, 221, 201); Manila
-
-
-
-/*    color: rgb(53,82,74); */
     color: rgb(82,74, 53);
+}
+.home-image {
+    width:80px;
+    padding: 10px 20px 0px 0px;
+}
+.flash-message {
+    padding: 10px 0px;
+    font-size: 16px;
+    color: rgb(144,74,65);
+}
+.nav-style {
+    background-color: rgb(229, 221, 201); Manila
+}
+li.home {
+    padding-right: 20px;
 }
 
 .content-form {
@@ -46,7 +56,9 @@ label {
     padding: 8px;
     background-color: #e0e0e0;
 }
-
+.login-info-div {
+    padding-top: 20px;
+}
 .login-info {
     font-size: 14px;
     font-weight: bold;
@@ -72,4 +84,18 @@ label {
     color: #808080;
     font-weight: bolder;
     font-size: 1.2em;
+}
+.lineup-btn {
+    margin-top: 50px;
+    width: 140px;
+}
+.delete-msg {
+    font-size: 20px;
+    color: rgb(144,74,65);
+}
+textarea.condition {
+    width: 550px;
+}
+footer {
+    color: white;
 }

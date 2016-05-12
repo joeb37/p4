@@ -4,10 +4,6 @@
     {{ $machine->name }}
 @stop
 
-@section('head')
-    <!-- <link href='/css/machine/show.css' rel='stylesheet'> -->
-@stop
-
 @section('content')
     @if(isset($machine->name))
         <div class="container">
@@ -20,9 +16,4 @@
     @else
         <h2>Machine not found</h2>
     @endif
-@stop
-
-
-@section('body')
-    <!-- <script src="/js/book/show.js"></script> -->
 @stop

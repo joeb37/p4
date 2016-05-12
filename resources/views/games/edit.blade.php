@@ -4,10 +4,6 @@
     Game Notes
 @stop
 
-@section('head')
-    <!-- <link href='/css/machine/show.css' rel='stylesheet'> -->
-@stop
-
 @section('navigation')
     <li role="presentation"><a href="/location/show/{{$location->id}}">Return to {{$location->name}}</a></li>
     <li role="presentation"><a href="/location/{{$location->id}}/game/confirm-delete/{{$game->id}}">Delete this game</a></li>
@@ -40,9 +36,9 @@
                     <div class="col-md-10 form-group">
                         <label for="condition">Condition:</label>
                         <textarea
-                            class="form-control"
+                            class="form-control condition"
                             rows='4'
-                            columns='64'
+                            maxlength='255'
                             id='condition'
                             name='condition'
                        >{{ $game->condition }}</textarea>
@@ -56,9 +52,4 @@
             </form>
         </div>
     </div>
-@stop
-
-
-@section('body')
-    <!-- <script src="/js/book/show.js"></script> -->
 @stop

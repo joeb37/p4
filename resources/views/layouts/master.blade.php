@@ -9,16 +9,11 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-{{--   <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' rel='stylesheet'> --}}
-
     <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' rel='stylesheet'>
-{{--    <link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/lumen/bootstrap.min.css' rel='stylesheet'> --}}
-
     <link href="/css/p4.css" type='text/css' rel='stylesheet'>
 
     {{-- Yield any page specific CSS files or anything else you might want in the <head> --}}
     @yield('head')
-
 </head>
 <body>
 
@@ -29,8 +24,8 @@
                     <div class="col-md-1">
                         <a href='/'>
                         <img
-                        src='/images/bumper-cap.jpg'
-                        style='width:80px'
+                        class="home-image"
+                        src='/images/bumper-cap-trans.png'
                         alt='Bumper Cap'>
                         </a>
                     </div><!--
@@ -38,7 +33,7 @@
                         <h1>New England Pinball Locator</h1>
                     </div><!--
                  --><div class="col-md-4">
-                        <div style="padding-top:20px;">
+                        <div class="login-info-div">
                             @if(Auth::check())
                                 <span class="login-info">Welcome back, {{Auth::user()->name}}!</span>
                                 <a href='/logout' class="btn">Logout</a>
@@ -49,22 +44,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    @if(Session::get('message') != null)
-                        <div class='flash_message'>{{ Session::get('message') }}</div>
-                    @endif
-                </div>
             </div>
         </div>
     </header>
 
     <nav>
+        {{-- Navigation Bar --}}
         <div class="container">
-            <div class="well well-sm" >
+            <div class="well well-sm nav-style">
                 <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href='/'>Home</a></li>
+                    <li role="presentation" class="active home"><a href='/'>Home</a></li>
                     @yield('navigation')
                 </ul>
+                @if(Session::get('message') != null)
+                    <div class='flash-message'>{{ Session::get('message') }}</div>
+                @endif
             </div>
         </div>
     </nav>
@@ -75,17 +69,16 @@
     </section>
 
     <footer>
-        &copy; {{ date('Y') }} &nbsp;&nbsp;
-        {{--
-        <a href='https://github.com/susanBuck/foobooks' class='fa fa-github' target='_blank'> View on Github</a> &nbsp;&nbsp;
-        <a href='http://foobooks.dwa15-practice.biz/' class='fa fa-link' target='_blank'> View Live</a>
-        --}}
+        <div class="container">
+            &copy; {{ date('Y') }} &nbsp;&nbsp;
+        </div>
     </footer>
 
+    {{-- Bootstrap and jQuery --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-    {{-- Yield any page specific JS files or anything else you might want at the end of the body --}}
+    {{-- Page specific JS files --}}
     @yield('body')
 
 </body>

@@ -4,10 +4,6 @@
     Game Lineup
 @stop
 
-@section('head')
-    <!-- <link href='/css/machine/show.css' rel='stylesheet'> -->
-@stop
-
 @section('navigation')
     <li role="presentation"><a href="/location/show/{{$location->id}}">Return to {{$location->name}}</a></li>
 @stop
@@ -34,8 +30,8 @@
                         </select>
                     </div>
                     <div class="col-md-2 form-group">
-                        <a href="JavaScript:void(0);" id="btn-add" style="margin-top: 100px" class="btn btn-info">Add &gt;&gt;</a><br>
-                        <a href="JavaScript:void(0);" id="btn-remove" style="margin-top: 50px" class="btn btn-info">&lt;&lt; Remove</a>
+                        <a href="JavaScript:void(0);" id="btn-add" class="btn btn-info lineup-btn">Add Game &gt;&gt;</a><br>
+                        <a href="JavaScript:void(0);" id="btn-remove" class="btn btn-info lineup-btn">&lt;&lt; Remove Game</a>
                     </div>
                     <div class="col-md-4 form-group">
                         <label for="machines">Selected</label>

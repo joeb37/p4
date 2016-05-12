@@ -5,6 +5,7 @@
 @stop
 
 @section('navigation')
+    {{-- Create button only available to logged-in users --}}
     @if(Auth::check())
         <li role="presentation" ><a href="/location/create" class="btn">Create a new location</a></li>
     @endif
@@ -49,7 +50,7 @@
                     <div class="col-md-4 form-group" >
                        <label for="state">State:</label>
                        <select name='state' id='state' class="form-control">
-                           <option value=''></option>
+                           <option value=''>All States</option>
                            @foreach($states_for_dropdown as $state_abbrev => $state_name)
                                <?php $selected = (old('state', '') == $state_abbrev) ? 'SELECTED' : '' ?>
                                <option value='{{$state_abbrev}}' {{$selected}}>{{$state_name}}</option>
@@ -71,7 +72,7 @@
                     <div class='col-md-5 form-group'>
                        <label for="business_type">Type of Business:</label>
                        <select name='business_type' id='business_type' class="form-control">
-                           <option value='' ></option>
+                           <option value='' >All Types</option>
                            @foreach($business_types_for_dropdown as $key => $value)
                                <?php $selected = (old('business_type', '') == $key) ? 'SELECTED' : '' ?>
                                <option value='{{$key}}' {{$selected}}>{{$value}}</option>

@@ -52,7 +52,7 @@
                     <div class="col-md-3 form-group">
                         <label for="state">State:</label>
                         <select name='state' id='state' class="form-control">
-                            <option value=''></option>
+                            <option value='' label="Select a State"></option>
                             @foreach($states_for_dropdown as $state_abbrev => $state_name)
                                <?php $selected = (old('state', '') == $state_abbrev) ? 'SELECTED' : '' ?>
                                <option value='{{$state_abbrev}}' {{$selected}}>{{$state_name}}</option>
@@ -76,7 +76,7 @@
                     <div class="col-md-6 form-group">
                         <label for="business_type">Type of Business:</label>
                         <select name='business_type' id='business_type' class="form-control">
-                            <option value='' ></option>
+                            <option value='' label="Select a Business Type"></option>
                             @foreach($business_types_for_dropdown as $key => $value)
                                 <?php $selected = (old('business_type', '') == $key) ? 'SELECTED' : '' ?>
                                 <option value='{{$key}}' {{$selected}}>{{$value}}</option>
@@ -89,20 +89,13 @@
                     <div class="col-md-6 form-group">
                         <label for="payment_type">Payment Method:</label>
                         <select name='payment_type' id='payment_type' class="form-control">
-                            <option value=''></option>
+                            <option value='' label="Select a Payment Type"></option>
                             @foreach($payments_for_dropdown as $key => $value)
                                 <?php $selected = (old('payment_type', '') == $key) ? 'SELECTED' : '' ?>
                                 <option value='{{$key}}' {{$selected}}>{{$value}}</option>
                             @endforeach
                         </select>
                         <div class='error'>{{ $errors->first('payment_type') }}</div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 error" style="margin-top: 6px;">
-                        @if(count($errors) > 0)
-                            Please correct the errors above and try again.
-                        @endif
                     </div>
                 </div>
                 <div class="row">

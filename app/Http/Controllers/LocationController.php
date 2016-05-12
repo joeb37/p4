@@ -14,10 +14,17 @@ class LocationController extends Controller {
     */
     public function getQuery(Request $request) {
 
+        // Data for drop down lists.
         $business_type_list = \p4\Location::business_type_list();
         $payment_type_list = \p4\Location::payment_type_list();
 
         // Build a query
+        //
+        // All search elements are optional, and providing no parameters should
+        // return all locations.
+        //
+        // Count up an report the number of games at each location.
+
         $locationQuery = DB::table('locations')
             ->leftJoin('games','games.location_id','=','locations.id')
             ->leftJoin('machines', 'games.machine_id', '=', 'machines.id')
@@ -58,6 +65,10 @@ class LocationController extends Controller {
      */
     public function getShow($id = null) {
 
+        // Data for drop down lists.
+        $payment_type_list = \p4\Location::payment_type_list();
+        $business_type_list = \p4\Location::business_type_list();
+
         // Make sure we can find the location that the user wants to see
         $location = \p4\Location::find($id);
 
@@ -67,10 +78,12 @@ class LocationController extends Controller {
             return redirect('/');
         }
 
-        $payment_type_list = \p4\Location::payment_type_list();
-        $business_type_list = \p4\Location::business_type_list();
-
-        $games = DB::table('games')->select('games.id', 'games.machine_id', 'machines.name', 'machines.manufacturer', 'machines.year')->where('location_id', '=', $id)->join('machines', 'games.machine_id','=','machines.id')->get();
+        // Get the info for all games at this location.
+        $games = DB::table('games')->select('games.id', 'games.machine_id',
+                                            'machines.name', 'machines.manufacturer', 'machines.year')
+                                   ->where('location_id', '=', $id)
+                                   ->join('machines', 'games.machine_id','=','machines.id')
+                                   ->get();
 
         return view('locations.details')
             ->with('location', $location)
@@ -85,10 +98,12 @@ class LocationController extends Controller {
      */
     public function getCreate() {
 
+        // Data for drop down lists.
         $state_list = \p4\Location::state_list();
         $payment_type_list = \p4\Location::payment_type_list();
         $business_type_list = \p4\Location::business_type_list();
 
+        // Present the create form
         return view('locations.create')
             ->with('states_for_dropdown', $state_list)
             ->with('payments_for_dropdown', $payment_type_list)
@@ -110,6 +125,8 @@ class LocationController extends Controller {
 
         # Mass Assignment
         $data = $request->only('name', 'street_address', 'city', 'state', 'zip', 'business_type', 'payment_type');
+
+        // Create the location.
         $location = \p4\Location::create($data);
 
         \Session::flash('message', $request->name.' was added');
@@ -120,18 +137,17 @@ class LocationController extends Controller {
     /**
      * Responds to requests to GET /location/edit/{id?}
      */
-    public function getEdit($id) {
+    public function getEdit($id = null) {
 
         // Make sure we can find the location that the user wants to edit
-        try
-        {
-            $location = \p4\Location::findOrFail($id);
-        }
-        catch (ModelNotFoundException $exception)
-        {
+        $location = \p4\Location::find($id);
+
+        if (is_null($location)) {
+            \Session::flash('message', 'Location not found');
             return redirect('/');
         }
 
+        // Data for dropdown lists
         $state_list = \p4\Location::state_list();
         $payment_type_list = \p4\Location::payment_type_list();
         $business_type_list = \p4\Location::business_type_list();
@@ -176,6 +192,12 @@ class LocationController extends Controller {
     public function getConfirmDelete($id = null) {
 
         $location = \p4\Location::find($id);
+
+        // Make sure we can find the location that the user wants to delete
+        if (is_null($location)) {
+            \Session::flash('message', 'Location not found');
+            return redirect('/');
+        }
 
         return view('locations.delete')->with('location', $location);
 

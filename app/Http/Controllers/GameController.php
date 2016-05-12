@@ -11,19 +11,20 @@ class GameController extends Controller {
     /**
      * Responds to requests to GET /location/{id?}/game/lineup
      */
-    public function getLineup($id) {
+    public function getLineup($id = null) {
 
         // Make sure we can find the location that the user wants to see
-        try
-        {
-            $location = \p4\Location::findOrFail($id);
-        }
-        catch (ModelNotFoundException $exception)
-        {
+        $location = \p4\Location::find($id);
+
+        if (is_null($location)) {
+            \Session::flash('message', 'Location not found');
             return redirect('/');
         }
 
+        // Get an order list of all machines that are available to be added to a location
         $machines = DB::table('machines')->orderBy('name')->get();
+
+        // Get all list of all machines already at this location.
         $gameArray = \p4\Game::machines_at_location($id);
 
         return view('games.lineup')
@@ -60,19 +61,23 @@ class GameController extends Controller {
     /**
      * Responds to requests to GET /location/{loc_id?}/game/edit/{game_id?}
      */
-    public function getEdit($loc_id, $game_id) {
+    public function getEdit($loc_id = null, $game_id = null) {
 
-        // Make sure we can find the location and game that the user wants to see
-        try
-        {
-            $location = \p4\Location::findOrFail($loc_id);
-            $game = \p4\Game::findOrFail($game_id);
-        }
-        catch (ModelNotFoundException $exception)
-        {
+        // Make sure we can find the location that the user wants to see
+        $location = \p4\Location::find($loc_id);
+        if (is_null($location)) {
+            \Session::flash('message', 'Location not found');
             return redirect('/');
         }
 
+        // Make sure we can find the game that the user wants to see
+        $game = \p4\Game::find($game_id);
+        if (is_null($game)) {
+            \Session::flash('message', 'Game not found');
+            return redirect('/');
+        }
+
+        // Get the generic machine data for this game (name)
         $machine = DB::table('machines')->where('id','=',$game->machine_id)->first();
 
         return view('games.edit')
@@ -98,9 +103,15 @@ class GameController extends Controller {
         return redirect('/location/show/'.$id);
     }
 
-    public function getConfirmDelete($loc_id, $game_id) {
+    public function getConfirmDelete($loc_id, $game_id = null) {
 
         $game = \p4\Game::with('machine')->with('location')->find($game_id);
+
+        // Make sure we can find the game to be deleted.
+        if (is_null($game)) {
+            \Session::flash('message', 'Game not found');
+            return redirect('/');
+        }
 
         return view('games.delete')->with('game', $game);
     }
@@ -108,10 +119,11 @@ class GameController extends Controller {
     /**
      * Responds to requests to GET /location/{loc_id?}/game/delete/{game_id?}
      */
-    public function getDelete($loc_id, $game_id) {
+    public function getDelete($loc_id, $game_id = null) {
 
         $game = \p4\Game::with('machine')->with('location')->find($game_id);
 
+        // Make sure we can find the game to be deleted.
         if (is_null($game)) {
             \Session::flash('message', 'Game not found');
             return redirect('/');
