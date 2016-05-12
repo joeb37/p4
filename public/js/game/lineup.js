@@ -9,16 +9,14 @@ $(document).ready(function() {
 
     $('#btn-add').click(function() {
         $('#available option:selected').each(function() {
-            var $item = $("option", {"value": $(this).val(), "text": $(this).text()});
-            $('#machines').append($item);
+            $('#machines').append("<option SELECTED value='" + $(this).val()+"'>"+$(this).text()+"</option>");
             $(this).remove();
         });
     });
 
     $('#btn-remove').click(function() {
         $('#machines option:selected').each(function() {
-            var $item = $("option", {"value": $(this).val(), "text": $(this).text()});
-            $('#available').append($item);
+            $('#available').append("<option value='" + $(this).val()+"'>"+$(this).text()+"</option>");
             $(this).remove();
         });
     });
