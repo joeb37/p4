@@ -38,7 +38,7 @@ class GameController extends Controller {
      */
     public function postLineup($loc_id, Request $request) {
 
-        $newMachines =  $request->input('machines');
+        $newMachines =  $request->input('machines') == null ? [] : $request->input('machines');
         $currentMachines = \p4\Game::machines_at_location($loc_id);
 
         // Process machines that have been added

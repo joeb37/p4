@@ -1,9 +1,5 @@
 $(document).ready(function() {
 
-    $('#btn-update').click(function() {
-        $('#machines option').prop("selected", true);
-    });
-
     // These two jQuery statements were created with the help of an online tutorial at
     // www.designchemical.com/blog/index.php/jquery/create-add-remove-select-lists-using-jquery/
 
@@ -19,6 +15,12 @@ $(document).ready(function() {
             $('#available').append("<option value='" + $(this).val()+"'>"+$(this).text()+"</option>");
             $(this).remove();
         });
+    });
+
+    //
+
+    $('#btn-update').click(function() {
+        $('#machines option').prop("selected", true);
     });
 
 });
